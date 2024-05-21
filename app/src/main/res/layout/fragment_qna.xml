@@ -9,46 +9,46 @@
         tools:context=".fragments.QnAFragment">
 
         <LinearLayout
-            android:background="#0900FF"
+            android:background="#E9ECEF"
             android:layout_width="match_parent"
             android:layout_height="9dp">
         </LinearLayout>
 
         <LinearLayout
-            android:background="#1111"
+            android:background="@drawable/rectangle_button"
             android:layout_width="match_parent"
-            android:layout_height="100dp">
+            android:layout_height="55dp">
 
             <TextView
-                android:layout_marginTop="30dp"
+                android:fontFamily="@font/mainstyle"
+                android:layout_marginTop="18dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="50dp"
+                android:layout_marginLeft="80dp"
                 android:layout_marginRight="110dp"
-                android:text="이메일"
-                android:textColor="@color/black"
-                android:textSize="30dp"
-                android:textStyle="bold" />
+                android:text="제목"
+                android:textColor="@color/white"
+                android:textSize="18dp" />
 
             <TextView
-                android:layout_marginTop="30dp"
+                android:fontFamily="@font/mainstyle"
+                android:layout_marginTop="18dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="40dp"
-                android:text="제목"
-                android:textColor="@color/black"
-                android:textSize="30dp"
-                android:textStyle="bold" />
+                android:layout_marginRight="70dp"
+                android:text="이메일"
+                android:textColor="@color/white"
+                android:textSize="18dp" />
 
             <TextView
+                android:fontFamily="@font/mainstyle"
                 android:id="@+id/statusArea"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="18dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="상태"
-                android:textColor="@color/black"
-                android:textSize="30dp"
-                android:textStyle="bold" />
+                android:textColor="@color/white"
+                android:textSize="18dp" />
 
         </LinearLayout>
 
@@ -57,10 +57,11 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="120dp"
-            android:background="@color/white">
+            android:background="#E9ECEF">
 
             <ListView
                 android:layout_marginBottom="180dp"
+                android:background="@color/white"
                 android:id="@+id/boardListView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"/>
@@ -71,7 +72,7 @@
                 android:layout_height="80dp"
                 android:layout_marginRight="20dp"
                 android:layout_marginBottom="90dp"
-                android:src="@drawable/btnwrite"
+                android:src="@drawable/btnwrite_2"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent" />
 

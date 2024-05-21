@@ -1,49 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:tools="http://schemas.android.com/tools"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+<layout>
 
-    <LinearLayout
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#E9ECEF"
         android:gravity="center"
         android:orientation="vertical">
 
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:fontFamily="@font/mainstyle"
             android:layout_margin="30dp"
-            android:background="@drawable/rounded_button"
-            android:gravity="center"
             android:padding="10dp"
+            android:background="@drawable/rounded_button"
             android:text="앱 사용자 리스트"
-            android:textColor="#E9ECEF"
+            android:textColor="@color/white"
+            android:textStyle="bold"
             android:textSize="30dp"
-            android:textStyle="bold"></TextView>
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        </TextView>
 
         <LinearLayout
             android:id="@+id/linearLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_margin="10dp">
 
             <EditText
+                android:fontFamily="@font/boardtext"
                 android:id="@+id/searchWord"
-                android:layout_width="291dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:hint="검색할 이메일을 입력해주세요."
                 android:inputType="text" />
+
             <Button
+                android:fontFamily="@font/boardtext"
                 android:id="@+id/searchBtn"
-                android:layout_width="71dp"
-                android:layout_height="match_parent"
-                android:background="@drawable/rounded_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:text="검색"
-                android:textColor="#E9ECEF"
-                android:textSize="20dp" />
+                android:textSize="20dp"
+                android:textColor="@color/white"
+                android:background="@color/mainColor"/>
 
         </LinearLayout>
 

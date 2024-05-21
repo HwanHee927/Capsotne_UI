@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:tools="http://schemas.android.com/tools"
+<layout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:tools="http://schemas.android.com/tools">
 
     <RelativeLayout
+        android:onClick="hideKeyboard"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#E9ECEF"
-        tools:context="Chatting.ChatActivity">
+        tools:context="Chatting.ChatActivity"
+        android:fitsSystemWindows="true">
+
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/my_toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="#E9ECEF"
+            android:layout_alignParentTop="true"
+            android:background="#152134"
             android:elevation="4dp"
             android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
-            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-            tools:ignore="MissingConstraints" />
-
-
-        <!-- 대화 내용 -->
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="-39dp" />
 
         <!-- 입력 레이아웃 -->
         <androidx.recyclerview.widget.RecyclerView
@@ -29,7 +29,7 @@
             android:layout_height="match_parent"
             android:layout_above="@id/input_layout"
             android:layout_marginTop="53dp"
-            android:background="#E9ECEF" />
+            android:background="#152134" />
 
         <LinearLayout
             android:id="@+id/input_layout"
@@ -37,8 +37,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_marginBottom="10dp"
-            android:background="#E9ECEF"
-
+            android:background="#E8E8E8"
             android:orientation="horizontal"
             android:weightSum="100">
 
@@ -48,7 +47,7 @@
                 android:layout_height="50dp"
                 android:layout_marginStart="10dp"
                 android:layout_weight="85"
-                android:background="@drawable/rounded_edittext_2"
+                android:fontFamily="@font/boardtext"
                 android:hint="메시지를 입력하세요"
                 android:paddingStart="10dp" />
 
@@ -59,9 +58,10 @@
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="10dp"
                 android:layout_weight="15"
-                android:background="@drawable/rounded_button_2"
-                android:text="전송"
-                android:textColor="@android:color/black" />
+                android:background="@color/mainColor"
+                android:fontFamily="@font/boardtext"
+                android:text="보내기"
+                android:textColor="@color/white" />
         </LinearLayout>
     </RelativeLayout>
 </layout>

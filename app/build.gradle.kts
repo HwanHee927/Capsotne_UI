@@ -1,5 +1,3 @@
-import org.jetbrains.kotlin.storage.CacheResetOnProcessCanceled.enabled
-
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
@@ -105,4 +103,7 @@ dependencies {
     // 파이어베이스 클라우드 메시징을 사용하기 위함
     implementation("com.google.firebase:firebase-messaging-ktx:12.0.0")
     implementation("com.google.firebase:firebase-analytics-ktx:21.1.1")
+
+    // 뷰 페이저 indicator
+    implementation("com.tbuonomo:dotsindicator:5.0")
 }

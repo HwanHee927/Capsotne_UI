@@ -8,7 +8,6 @@ import android.widget.BaseAdapter
 import android.widget.LinearLayout
 import android.widget.TextView
 import com.example.giveback.R
-import com.example.giveback.utils.FBAuth
 import com.example.giveback.utils.FBRef
 import com.google.firebase.database.ChildEventListener
 import com.google.firebase.database.DataSnapshot
@@ -35,7 +34,7 @@ class QnaBoardListLVAdapter(val boardList : MutableList<QnaBoardModel>, val boar
 
         //if(view== null) {
 
-            view = LayoutInflater.from(parent?.context).inflate(R.layout.board_list_item, parent,false)
+            view = LayoutInflater.from(parent?.context).inflate(R.layout.qna_board_list_item, parent,false)
         //}
 
         val email = view?.findViewById<TextView>(R.id.emailArea)
@@ -72,7 +71,21 @@ class QnaBoardListLVAdapter(val boardList : MutableList<QnaBoardModel>, val boar
         // posts 경로에 ChildEventListener 등록
         FBRef.commentRef.child(boardKeyList[position]).addChildEventListener(childEventListener)
 
-        email!!.text = boardList[position].email
+        val atIndex = boardList[position].email.indexOf("@") // @의 인덱스 추출
+
+        // 문자가 4개 이상일때
+        if (atIndex >= 4) {
+            // 앞의 문자 4개는 그냥 출력하고
+            val maskedPart = boardList[position].email.substring(0, 4) +
+                    "*".repeat(atIndex - 4) + // 뒤에꺼는 *로 대체하고
+                    boardList[position].email.substring(atIndex) // @뒤는 그대로 표시
+
+            email!!.text = maskedPart
+
+        } else {
+            email!!.text = boardList[position].email
+        }
+
         title!!.text = boardList[position].title
         status!!.text = boardList[position].status
 

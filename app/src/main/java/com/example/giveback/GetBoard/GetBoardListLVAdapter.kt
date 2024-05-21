@@ -8,12 +8,10 @@ import android.widget.BaseAdapter
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
-import androidx.core.view.isVisible
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.example.giveback.R
 import com.example.giveback.utils.FBAuth
-import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.ktx.storage
 
@@ -62,9 +60,8 @@ class GetBoardListLVAdapter(val boardList : MutableList<GetBoardModel>, val boar
                         .error(R.drawable.loading) //리소스를 불러오다가 에러 발생 시 보여줄 이미지
                         .into(imageViewFromFB)
                 }
-
             } else {
-                imageViewFromFB?.isVisible = false
+
             }
         }
 
@@ -78,9 +75,9 @@ class GetBoardListLVAdapter(val boardList : MutableList<GetBoardModel>, val boar
             itemLinearLayoutView?.setBackgroundColor(Color.parseColor("#EEEEEE"))
         }
 
-        title!!.text = "습득명: ${boardList[position].title}"
-        getLocation!!.text = "습득위치: ${boardList[position].getLocation} ${boardList[position].getdetailLocation}"
-        keepLocation!!.text = "보관위치: ${boardList[position].keepLocation} ${boardList[position].keepdetailLocation}"
+        title!!.text = boardList[position].title
+        getLocation!!.text = "${boardList[position].getLocation} ${boardList[position].getdetailLocation}"
+        keepLocation!!.text = "${boardList[position].keepLocation} ${boardList[position].keepdetailLocation}"
         getDate!!.text = boardList[position].getDate
 
         return view!!

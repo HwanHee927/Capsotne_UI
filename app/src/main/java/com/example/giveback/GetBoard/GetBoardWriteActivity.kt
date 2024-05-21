@@ -5,9 +5,7 @@ import android.app.Dialog
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
-import android.graphics.drawable.BitmapDrawable
 import android.net.Uri
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Log
@@ -18,11 +16,11 @@ import android.widget.ImageView
 import android.widget.Spinner
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.giveback.GalleryAdapter
 import com.example.giveback.MainActivity
 import com.example.giveback.R
@@ -33,13 +31,12 @@ import com.example.giveback.utils.FBRef
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.ktx.storage
-import java.io.ByteArrayOutputStream
 import java.util.Calendar
 
 // 게시글 작성 페이지
 class GetBoardWriteActivity : AppCompatActivity() {
 
-    private lateinit var binding : ActivityGetBoardWriteBinding
+    private lateinit var binding: ActivityGetBoardWriteBinding
 
     private val TAG = GetBoardWriteActivity::class.java.simpleName
 
@@ -54,7 +51,7 @@ class GetBoardWriteActivity : AppCompatActivity() {
 
     private lateinit var count: Number
 
-    private val maxNumber = 5
+    private val maxNumber = 3
 
     lateinit var galleryAdapter: GalleryAdapter
 
@@ -70,7 +67,7 @@ class GetBoardWriteActivity : AppCompatActivity() {
         galleryAdapter = GalleryAdapter(imageList, this)
 
         //recyclerView 설정
-        binding.recyclerView.layoutManager = GridLayoutManager(this,2)
+        binding.recyclerView.layoutManager = GridLayoutManager(this, 2)
         binding.recyclerView.adapter = galleryAdapter
 
 
@@ -87,7 +84,7 @@ class GetBoardWriteActivity : AppCompatActivity() {
             alertDialog.findViewById<Button>(R.id.wallet)?.setOnClickListener {
                 Toast.makeText(this, "지갑 카테고리를 눌렀습니다.", Toast.LENGTH_SHORT).show()
 
-                category =  alertDialog.findViewById<Button>(R.id.wallet).text.toString()
+                category = alertDialog.findViewById<Button>(R.id.wallet).text.toString()
                 binding.getCategoryArea.setText(category)
 
                 alertDialog.dismiss()
@@ -97,7 +94,7 @@ class GetBoardWriteActivity : AppCompatActivity() {
             alertDialog.findViewById<Button>(R.id.card)?.setOnClickListener {
                 Toast.makeText(this, "카드 카테고리를 눌렀습니다.", Toast.LENGTH_SHORT).show()
 
-                category =  alertDialog.findViewById<Button>(R.id.card).text.toString()
+                category = alertDialog.findViewById<Button>(R.id.card).text.toString()
                 binding.getCategoryArea.setText(category)
 
                 alertDialog.dismiss()
@@ -107,7 +104,7 @@ class GetBoardWriteActivity : AppCompatActivity() {
             alertDialog.findViewById<Button>(R.id.cash)?.setOnClickListener {
                 Toast.makeText(this, "현금 카테고리를 눌렀습니다.", Toast.LENGTH_SHORT).show()
 
-                category =  alertDialog.findViewById<Button>(R.id.cash).text.toString()
+                category = alertDialog.findViewById<Button>(R.id.cash).text.toString()
                 binding.getCategoryArea.setText(category)
 
                 alertDialog.dismiss()
@@ -117,7 +114,7 @@ class GetBoardWriteActivity : AppCompatActivity() {
             alertDialog.findViewById<Button>(R.id.bag)?.setOnClickListener {
                 Toast.makeText(this, "가방 카테고리를 눌렀습니다.", Toast.LENGTH_SHORT).show()
 
-                category =  alertDialog.findViewById<Button>(R.id.bag).text.toString()
+                category = alertDialog.findViewById<Button>(R.id.bag).text.toString()
                 binding.getCategoryArea.setText(category)
 
                 alertDialog.dismiss()
@@ -127,7 +124,7 @@ class GetBoardWriteActivity : AppCompatActivity() {
             alertDialog.findViewById<Button>(R.id.device)?.setOnClickListener {
                 Toast.makeText(this, "전자기기 카테고리를 눌렀습니다.", Toast.LENGTH_SHORT).show()
 
-                category =  alertDialog.findViewById<Button>(R.id.device).text.toString()
+                category = alertDialog.findViewById<Button>(R.id.device).text.toString()
                 binding.getCategoryArea.setText(category)
 
                 alertDialog.dismiss()
@@ -137,7 +134,7 @@ class GetBoardWriteActivity : AppCompatActivity() {
             alertDialog.findViewById<Button>(R.id.cloth)?.setOnClickListener {
                 Toast.makeText(this, "의류 카테고리를 눌렀습니다.", Toast.LENGTH_SHORT).show()
 
-                category =  alertDialog.findViewById<Button>(R.id.cloth).text.toString()
+                category = alertDialog.findViewById<Button>(R.id.cloth).text.toString()
                 binding.getCategoryArea.setText(category)
 
                 alertDialog.dismiss()
@@ -147,7 +144,7 @@ class GetBoardWriteActivity : AppCompatActivity() {
             alertDialog.findViewById<Button>(R.id.sport)?.setOnClickListener {
                 Toast.makeText(this, "스포츠 카테고리를 눌렀습니다.", Toast.LENGTH_SHORT).show()
 
-                category =  alertDialog.findViewById<Button>(R.id.sport).text.toString()
+                category = alertDialog.findViewById<Button>(R.id.sport).text.toString()
                 binding.getCategoryArea.setText(category)
 
                 alertDialog.dismiss()
@@ -157,7 +154,7 @@ class GetBoardWriteActivity : AppCompatActivity() {
             alertDialog.findViewById<Button>(R.id.car)?.setOnClickListener {
                 Toast.makeText(this, "자동차 카테고리를 눌렀습니다.", Toast.LENGTH_SHORT).show()
 
-                category =  alertDialog.findViewById<Button>(R.id.car).text.toString()
+                category = alertDialog.findViewById<Button>(R.id.car).text.toString()
                 binding.getCategoryArea.setText(category)
 
                 alertDialog.dismiss()
@@ -167,7 +164,7 @@ class GetBoardWriteActivity : AppCompatActivity() {
             alertDialog.findViewById<Button>(R.id.document)?.setOnClickListener {
                 Toast.makeText(this, "서류 카테고리를 눌렀습니다.", Toast.LENGTH_SHORT).show()
 
-                category =  alertDialog.findViewById<Button>(R.id.document).text.toString()
+                category = alertDialog.findViewById<Button>(R.id.document).text.toString()
                 binding.getCategoryArea.setText(category)
 
                 alertDialog.dismiss()
@@ -177,7 +174,7 @@ class GetBoardWriteActivity : AppCompatActivity() {
             alertDialog.findViewById<Button>(R.id.instrument)?.setOnClickListener {
                 Toast.makeText(this, "악기 카테고리를 눌렀습니다.", Toast.LENGTH_SHORT).show()
 
-                category =  alertDialog.findViewById<Button>(R.id.instrument).text.toString()
+                category = alertDialog.findViewById<Button>(R.id.instrument).text.toString()
                 binding.getCategoryArea.setText(category)
 
                 alertDialog.dismiss()
@@ -187,7 +184,7 @@ class GetBoardWriteActivity : AppCompatActivity() {
             alertDialog.findViewById<Button>(R.id.certification)?.setOnClickListener {
                 Toast.makeText(this, "증명서 카테고리를 눌렀습니다.", Toast.LENGTH_SHORT).show()
 
-                category =  alertDialog.findViewById<Button>(R.id.certification).text.toString()
+                category = alertDialog.findViewById<Button>(R.id.certification).text.toString()
                 binding.getCategoryArea.setText(category)
 
                 alertDialog.dismiss()
@@ -197,7 +194,7 @@ class GetBoardWriteActivity : AppCompatActivity() {
             alertDialog.findViewById<Button>(R.id.etc)?.setOnClickListener {
                 Toast.makeText(this, "기타 카테고리를 눌렀습니다.", Toast.LENGTH_SHORT).show()
 
-                category =  alertDialog.findViewById<Button>(R.id.etc).text.toString()
+                category = alertDialog.findViewById<Button>(R.id.etc).text.toString()
                 binding.getCategoryArea.setText(category)
 
                 alertDialog.dismiss()
@@ -211,13 +208,14 @@ class GetBoardWriteActivity : AppCompatActivity() {
         }
 
         // 날짜를 입력받을 때 달력이 나오고 달력에서 날짜를 선택하면 선택한 날짜가 text로 들어간다.
-        val datePickerListener = DatePickerDialog.OnDateSetListener { view, year, month, dayOfMonth ->
-            // 선택한 날짜를 원하는 형식으로 텍스트로 변환
-            val selectedDateText = "${year}년 ${month + 1}월 ${dayOfMonth}일"
+        val datePickerListener =
+            DatePickerDialog.OnDateSetListener { view, year, month, dayOfMonth ->
+                // 선택한 날짜를 원하는 형식으로 텍스트로 변환
+                val selectedDateText = "${year}년 ${month + 1}월 ${dayOfMonth}일"
 
-            // 버튼의 텍스트를 선택한 날짜로 변경
-            binding.getDateArea.text = selectedDateText
-        }
+                // 버튼의 텍스트를 선택한 날짜로 변경
+                binding.getDateArea.text = selectedDateText
+            }
 
         // 버튼 클릭 시 DatePickerDialog를 띄우는 코드
         binding.getDateArea.setOnClickListener {
@@ -227,7 +225,8 @@ class GetBoardWriteActivity : AppCompatActivity() {
             val initialDay = calendar.get(Calendar.DAY_OF_MONTH)
 
             // DatePickerDialog 생성
-            val datePickerDialog = DatePickerDialog(this, datePickerListener, initialYear, initialMonth, initialDay)
+            val datePickerDialog =
+                DatePickerDialog(this, datePickerListener, initialYear, initialMonth, initialDay)
             datePickerDialog.show()
         }
 
@@ -300,20 +299,20 @@ class GetBoardWriteActivity : AppCompatActivity() {
 
 
             // 습득명은 필수로 입력되어야 한다.
-            if(title.isEmpty()){
-                Toast.makeText(this,"습득명을 선택해주세요",Toast.LENGTH_SHORT).show()
+            if (title.isEmpty()) {
+                Toast.makeText(this, "습득명을 선택해주세요", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
             // 습득날짜는 필수로 입력되어야 한다.
-            if(getDate.isEmpty()){
-                Toast.makeText(this,"습득날짜를 선택해주세요",Toast.LENGTH_SHORT).show()
+            if (getDate.isEmpty()) {
+                Toast.makeText(this, "습득날짜를 선택해주세요", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
             // 카테고리는 필수로 입력되어야 한다.(검색과 키워드에 사용되기 때문이다.)
-            if(category.isEmpty()){
-                Toast.makeText(this,"카테고리를 선택해주세요",Toast.LENGTH_SHORT).show()
+            if (category.isEmpty()) {
+                Toast.makeText(this, "카테고리를 선택해주세요", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
@@ -340,7 +339,7 @@ class GetBoardWriteActivity : AppCompatActivity() {
                             )
                         )
 
-                    Toast.makeText(this,"게시글 입력 완료", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "게시글 입력 완료", Toast.LENGTH_SHORT).show()
 
                     // 선택된 이미지 수만큼 업로드하도록 수정
                     for (i in 0 until imageList.count()) {
@@ -363,7 +362,7 @@ class GetBoardWriteActivity : AppCompatActivity() {
     }
 
     // 이미지를 업로드하는 함수
-    private fun imageUpload(key:String, uri:Uri, count: Int) {
+    private fun imageUpload(key: String, uri: Uri, count: Int) {
         val storage = Firebase.storage
         val storageRef = storage.reference
         val mountainsRef = storageRef.child("${key}${count}.png")
@@ -414,15 +413,6 @@ class GetBoardWriteActivity : AppCompatActivity() {
         val galleryButton = dialog.findViewById<Button>(R.id.galleryButton)
         galleryButton.setOnClickListener {
 
-            if (imageList.count() == maxNumber) {
-                Toast.makeText(
-                    this,
-                    "이미지는 최대 ${maxNumber}장까지 첨부할 수 있습니다.",
-                    Toast.LENGTH_SHORT
-                ).show();
-                return@setOnClickListener
-            }
-
             val gallery = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI)
 
             // 사진 멀티 선택 가능
@@ -450,34 +440,44 @@ class GetBoardWriteActivity : AppCompatActivity() {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if(resultCode == RESULT_OK && requestCode == 100) {
+        if (resultCode == RESULT_OK && requestCode == 100) {
 
             //멀티 선택은 clipData
-            if(data!!.clipData != null){ //멀티 이미지
+            if (data!!.clipData != null) { //멀티 이미지
 
                 //선택한 이미지 갯수
                 count = data!!.clipData!!.itemCount
+                val clipDataSize = data!!.clipData!!.itemCount
+                val selectableCount = maxNumber - imageList.count()
 
-                for(index in 0 until count as Int){
-                    //이미지 담기
-                    val imageUri = data!!.clipData!!.getItemAt(index).uri
-                    //이미지 추가
-                    imageList.add(imageUri)
+                if (clipDataSize > selectableCount) { // 최대 선택 가능한 개수를 초과해서 선택한 경우
+                    Toast.makeText(
+                        this,
+                        "이미지는 최대 ${selectableCount}장까지 첨부할 수 있습니다.",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                } else {
+                    for (index in 0 until count as Int) {
+                        //이미지 담기
+                        val imageUri = data!!.clipData!!.getItemAt(index).uri
+                        //이미지 추가
+                        imageList.add(imageUri)
+                    }
+
+                    Log.d(TAG, "현재 선택한 사진 수 : ${count.toString()}")
                 }
-
-                Log.d(TAG, "현재 선택한 사진 수 : ${count.toString()}")
-
-            }else{ //싱글 이미지
+            } else { //싱글 이미지
                 val imageUri = data!!.data
                 imageList.add(imageUri!!)
             }
             galleryAdapter.notifyDataSetChanged()
 
-        } else if(resultCode == RESULT_OK && requestCode == 200) {
+        } else if (resultCode == RESULT_OK && requestCode == 200) {
             val imageBitmap = data?.extras?.get("data") as Bitmap
             findViewById<ImageView>(R.id.galleryView).setImageBitmap(imageBitmap)
         }
     }
+
 
     override fun onRequestPermissionsResult(
         requestCode: Int,
@@ -487,7 +487,11 @@ class GetBoardWriteActivity : AppCompatActivity() {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         if (requestCode == 1000) {
             if (grantResults[0] != PackageManager.PERMISSION_GRANTED) { //거부
-                Toast.makeText(this@GetBoardWriteActivity, "카메라 권한을 허용하고 이용해주세요 ", Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    this@GetBoardWriteActivity,
+                    "카메라 권한을 허용하고 이용해주세요 ",
+                    Toast.LENGTH_SHORT
+                ).show()
             }
         }
     }

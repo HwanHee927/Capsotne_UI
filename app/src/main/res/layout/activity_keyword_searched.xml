@@ -5,28 +5,26 @@
     tools:context=".Keyword.KeywordSearchedActivity">
 
     <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#E9ECEF"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="90dp"
             android:layout_marginBottom="30dp"
-            android:background="#CED4DA"
+            android:background="@color/mainColor"
             android:gravity="center"
             android:text="키워드로 검색된 습득물 게시글"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textSize="30dp"
-            android:textStyle="bold" />
+            android:textStyle="bold"/>
 
         <LinearLayout
             android:id="@+id/backGetFragment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#DEE2E6"
-            android:orientation="horizontal">
+            android:orientation="horizontal"> <!--기존 색상: android:background="#1111" -->
 
             <TextView
                 android:layout_width="wrap_content"
@@ -34,12 +32,12 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
                 android:text="습득물 홈으로 되돌아가기"
-                android:textColor="@color/black"
+                android:textColor="#000000"
                 android:textSize="30dp"
                 android:textStyle="bold" />
 
             <ImageView
-                android:layout_width="33dp"
+                android:layout_width="37dp"
                 android:layout_height="match_parent"
                 android:src="@drawable/back_2"></ImageView>
 
@@ -47,10 +45,10 @@
         </LinearLayout>
 
         <ListView
+            android:layout_marginTop="30dp"
             android:id="@+id/keywordList"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="30dp"
             tools:layout_editor_absoluteX="16dp"
             tools:layout_editor_absoluteY="215dp" />
 

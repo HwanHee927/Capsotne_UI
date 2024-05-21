@@ -7,16 +7,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/white">
-
-        <ImageView
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:src="@drawable/icon"
-            app:layout_constraintBottom_toTopOf="@+id/linearLayout10"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"></ImageView>
+        android:background="#E9ECEF">
 
         <LinearLayout
             android:id="@+id/linearLayout10"
@@ -30,6 +21,7 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="#E9ECEF"
                 android:orientation="vertical">
 
                 <ImageView
@@ -40,12 +32,13 @@
                     android:src="@drawable/getreport" />
 
                 <TextView
+                    android:fontFamily="@font/boardtext"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="습득물 입력"
                     android:textColor="@color/black"
-                    android:textSize="20dp"
-                    android:textStyle="bold"></TextView>
+                    android:textSize="20dp">
+                </TextView>
             </LinearLayout>
 
             <LinearLayout
@@ -60,12 +53,13 @@
                     android:src="@drawable/lostreport" />
 
                 <TextView
+                    android:fontFamily="@font/boardtext"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="분실물 입력"
                     android:textColor="@color/black"
-                    android:textSize="20dp"
-                    android:textStyle="bold"></TextView>
+                    android:textSize="20dp">
+                </TextView>
             </LinearLayout>
         </LinearLayout>
 
@@ -118,8 +112,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:src="@drawable/get"
-                android:background="#E0E0E0"/>
+                android:background="#E0E0E0"
+                android:src="@drawable/get" />
 
             <ImageView
                 android:id="@+id/tipTap"
@@ -134,8 +128,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:src="@drawable/report"
-                android:background="#E0E0E0" />
+                android:background="#E0E0E0"
+                android:src="@drawable/report" />
 
             <ImageView
                 android:id="@+id/bookmarkTap"
