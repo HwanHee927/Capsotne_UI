@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#E9ECEF"
+        tools:context="Chatting.ChatActivity">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/my_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="#E9ECEF"
+            android:elevation="4dp"
+            android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+            tools:ignore="MissingConstraints" />
+
+
+        <!-- 대화 내용 -->
+
+        <!-- 입력 레이아웃 -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/chat_recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@id/input_layout"
+            android:layout_marginTop="53dp"
+            android:background="#E9ECEF" />
+
+        <LinearLayout
+            android:id="@+id/input_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="10dp"
+            android:background="#E9ECEF"
+
+            android:orientation="horizontal"
+            android:weightSum="100">
+
+            <EditText
+                android:id="@+id/message_edit"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_marginStart="10dp"
+                android:layout_weight="85"
+                android:background="@drawable/rounded_edittext_2"
+                android:hint="메시지를 입력하세요"
+                android:paddingStart="10dp" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/send_btn"
+                android:layout_width="30dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_weight="15"
+                android:background="@drawable/rounded_button_2"
+                android:text="전송"
+                android:textColor="@android:color/black" />
+        </LinearLayout>
+    </RelativeLayout>
+</layout>
